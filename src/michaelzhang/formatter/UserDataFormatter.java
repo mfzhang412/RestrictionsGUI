@@ -23,6 +23,7 @@ public class UserDataFormatter {
 	}
 	
 	public static ArrayList<String[]> modDataTypes(UserPreferences prefs, ArrayList<String[]> rows) {
+		/*
 		// get user declared data ordering
 		String[] userOrdering = prefs.getColumnOrdering();
 		// get the datatypes corresponding to each column declared data
@@ -38,11 +39,14 @@ public class UserDataFormatter {
 		for (int num: userOrderIndices) {
 			userOrderDataTypes.add(tabledOrderedDataTypes[num]);
 		}
-		for (int i = 0; i < userOrderDataTypes.size(); i++) {
-			SQLFormatter.format(rows)
+		for (int i = 0; i < rows.size(); i++) {
+			String[] toInsert = new String[rows.get(0).length];
+			for (int j = 0; j < userOrderDataTypes.size(); j++) {
+				SQLFormatter.format();
+			}
 		}
 		
-		
+		*/
 		return new ArrayList<String[]>();
 	}
 	

@@ -3,7 +3,7 @@ package michaelzhang.tablesinformation;
  * stores all of the Tables information in an arrayList
  */
 public class TableCollection {
-	TableInformation[] tables = {new TableInformation()};
+	TableInformation[] tables;
 
 	public TableInformation getTable(String tableName) {
 		for (TableInformation table: tables) {
