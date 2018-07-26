@@ -54,7 +54,7 @@ public class DataContent {
 	 * Empty values within a record are represented as an empty string "".
 	 * @return	the formatted data according to a table
 	 */
-	public String[][] tableFormattedData() {
+	public String[][] getTableFormattedData() {
 		return this.TABLE_FORMATTED_DATA;
 	}
 	
