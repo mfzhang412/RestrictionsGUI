@@ -1,19 +1,20 @@
 package michaelzhang.fileinteraction;
 
 import michaelzhang.user.UserPreferences;
+import michaelzhang.formatter.UserDataFormatter;
 import java.util.ArrayList;
 
 /**
  * Takes the entire content of an ArrayList<String[]> and stores it according to an appropriate format.
  * The appropriate format is according to the table that is being interacted with. The appropriate
  * format will match the column ordering of the table and will shear the first row if the first row is
- * comprised of a header and not actual data. Note, for every record that has an empty column entry, ""
+ * comprised of a header and not actual data. Note, for every record that has an empty column entry, null
  * will be stored at that column entry's index.
  * @author Michael Zhang
  * 
  */
 public class DataContent {
-	/* All of the records from the .csv file in correct table ordering. Empty values are "". */
+	/* All of the records from the .csv file in correct table ordering. Empty values are null. */
 	final private String[][] TABLE_FORMATTED_DATA;
 	
 	/**
@@ -27,10 +28,7 @@ public class DataContent {
 	 */
 	public DataContent(UserPreferences prefs, ArrayList<String[]> rows) {
 		this.deleteHeader(prefs, rows);
-		// do: takes rows and format them correctly according to description and TableInformation from prefs,
-			// save it to modRows variable. Maybe use a key or map to accomplish this?
-		
-		this.TABLE_FORMATTED_DATA = modRows;
+		this.TABLE_FORMATTED_DATA = UserDataFormatter.fitDataToTable(prefs, rows);
 	}
 	
 	/**
