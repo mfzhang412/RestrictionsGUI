@@ -9,7 +9,7 @@ import java.util.LinkedHashMap;
  * names and their respective data types in correct ordering with respect to the table
  * in the database. Note that the default for the TableInformation's identification
  * instance variable is the table name passed in. The TableInformation identification
- * is able to be changed while the TableInformation's table name is declared final.
+ * is able to be changed but the TableInformation's table name is declared final.
  * @author michael.zhang
  *
  */

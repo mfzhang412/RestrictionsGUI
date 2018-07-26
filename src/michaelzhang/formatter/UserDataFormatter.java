@@ -11,26 +11,20 @@ import java.util.Map;
  */
 public class UserDataFormatter {
 	
-	
 	public static String[][] transpose(String[][] matrix) {
 		int m = matrix.length;
 	    int n = matrix[0].length;
-
 	    String[][] trasposedMatrix = new String[n][m];
-
-	    for(int x = 0; x < n; x++)
-	    {
-	        for(int y = 0; y < m; y++)
-	        {
+	    for (int x = 0; x < n; x++) {
+	        for (int y = 0; y < m; y++) {
 	            trasposedMatrix[x][y] = matrix[y][x];
 	        }
 	    }
-
 	    return trasposedMatrix;
 	}
 	
 	public static String[][] fitDataToTable(UserPreferences prefs, ArrayList<String[]> rows) {
-		String[][] matrix = rows.toArray(new String[rows.size()][rows.get(0).length]); // converts rows to String[][]
+		String[][] matrix = UserDataFormatter.twoDimArray(rows); // converts rows to String[][]
 		String[][] transposedRows = UserDataFormatter.transpose(matrix); // transposes String[][]
 		
 		Map<String,String> hash = prefs.getTableInformation().getColumnOrder(); // creates mapping of table column names in order
@@ -51,13 +45,11 @@ public class UserDataFormatter {
 			}
 		}
 		
-		String[][] modRows = transModRows.toArray(new String[transModRows.size()][transModRows.get(0).length]); // cast it to an array
+		String[][] modRows = UserDataFormatter.twoDimArray(transModRows); // cast it to an array
 		return UserDataFormatter.transpose(modRows); // transpose back to get records in table format
 	}
 	
-	
-	
-	private static int indexOf(String[] array, String str) {
+	public static int indexOf(String[] array, String str) {
 		if (array.length == 0) {
 			return -1;
 		}
@@ -68,6 +60,16 @@ public class UserDataFormatter {
 		}
 		return -1;
 	}
+	
+	/**
+	 * Returns a String[][] array of an ArrayList<String[]>.
+	 * @param toArray	the ArrayList to be a String[][] array
+	 * @return			the String[][] array of the ArrayList
+	 */
+	public static String[][] twoDimArray(ArrayList<String[]> toArray) {
+		return toArray.toArray(new String[toArray.size()][toArray.get(0).length]);
+	}
+	
 	
 //	public static ArrayList<String[]> modDataTypes(UserPreferences prefs, ArrayList<String[]> rows) {
 		/*

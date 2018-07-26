@@ -51,7 +51,7 @@ public class DataContent {
 	
 	/**
 	 * Returns the formatted data where each index within a record corresponds to the table's column.
-	 * Empty values within a record are represented as an empty string "".
+	 * Empty values within a record are represented as null.
 	 * @return	the formatted data according to a table
 	 */
 	public String[][] getTableFormattedData() {
