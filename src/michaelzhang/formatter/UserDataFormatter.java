@@ -69,7 +69,7 @@ public class UserDataFormatter {
 		return -1;
 	}
 	
-	public static ArrayList<String[]> modDataTypes(UserPreferences prefs, ArrayList<String[]> rows) {
+//	public static ArrayList<String[]> modDataTypes(UserPreferences prefs, ArrayList<String[]> rows) {
 		/*
 		// get user declared data ordering
 		String[] userOrdering = prefs.getColumnOrdering();
@@ -94,10 +94,10 @@ public class UserDataFormatter {
 		}
 		
 		*/
-		return new ArrayList<String[]>();
-	}
+//		return new ArrayList<String[]>();
+//	}
 	
-	public static ArrayList<String[]> orderList(UserPreferences prefs, ArrayList<String[]> rows) {
-		return new ArrayList<String[]>();
-	}
+//	public static ArrayList<String[]> orderList(UserPreferences prefs, ArrayList<String[]> rows) {
+//		return new ArrayList<String[]>();
+//	}
 }
