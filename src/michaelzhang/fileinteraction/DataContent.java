@@ -10,6 +10,7 @@ import java.util.ArrayList;
  * comprised of a header and not actual data. Note, for every record that has an empty column entry, ""
  * will be stored at that column entry's index.
  * @author Michael Zhang
+ * 
  */
 public class DataContent {
 	/* All of the records from the .csv file in correct table ordering. Empty values are "". */

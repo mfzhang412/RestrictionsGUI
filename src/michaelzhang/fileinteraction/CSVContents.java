@@ -11,6 +11,7 @@ import java.util.ArrayList;
  * ArrayList<String[]> follows the data pattern: each row of the .csv file will be split into a String[]
  * where each cell is a separate index; the String[] is then placed in the ArrayList.
  * @author Michael Zhang
+ * 
  */
 public class CSVContents {
 	/* the location of the .csv file */
