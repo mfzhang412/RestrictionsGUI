@@ -5,12 +5,18 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Map;
 
-/*
- * Contains all the format options for the incoming user data.
- * Consider making this an interface to accommodate for different databases.
+/**
+ * This class acts as a logic container for formatting incoming user data to fit a table in a database.
+ * @author michael.zhang
+ *
  */
 public class UserDataFormatter {
 	
+	/**
+	 * Transposes a 2D String[][] array and returns it.
+	 * @param matrix	the 2D String[][] to be transposed
+	 * @return	the transposed STring[][] array
+	 */
 	public static String[][] transpose(String[][] matrix) {
 		int m = matrix.length;
 	    int n = matrix[0].length;
@@ -23,6 +29,17 @@ public class UserDataFormatter {
 	    return trasposedMatrix;
 	}
 	
+	/**
+	 * Adjusts data to fit the column data types of the respective table.
+	 * Takes in the user entered in data and formats the data to return a String[][] array
+	 * or all the records correctly. The String[][] array will have records and their respective
+	 * values in the order presented in the table. Values that are empty are represented by null.
+	 * Note this method does not modify the data types of the input data, it only rearranges the
+	 * data and adds columns where values were not entered by the user.
+	 * @param prefs	UserPreferences object to obtain the table specifications
+	 * @param rows	the data to be fit to the table format
+	 * @return
+	 */
 	public static String[][] fitDataToTable(UserPreferences prefs, ArrayList<String[]> rows) {
 		String[][] matrix = UserDataFormatter.twoDimArray(rows); // converts rows to String[][]
 		String[][] transposedRows = UserDataFormatter.transpose(matrix); // transposes String[][]
@@ -49,6 +66,12 @@ public class UserDataFormatter {
 		return UserDataFormatter.transpose(modRows); // transpose back to get records in table format
 	}
 	
+	/**
+	 * Returns the first index of a String in a String[] array, -1 if the String is not in the array.
+	 * @param array	the array
+	 * @param str	the string to find in the array
+	 * @return	the index of the first occurrence of a String, -1 if String not in array
+	 */
 	public static int indexOf(String[] array, String str) {
 		if (array.length == 0) {
 			return -1;
@@ -69,37 +92,4 @@ public class UserDataFormatter {
 	public static String[][] twoDimArray(ArrayList<String[]> toArray) {
 		return toArray.toArray(new String[toArray.size()][toArray.get(0).length]);
 	}
-	
-	
-//	public static ArrayList<String[]> modDataTypes(UserPreferences prefs, ArrayList<String[]> rows) {
-		/*
-		// get user declared data ordering
-		String[] userOrdering = prefs.getColumnOrdering();
-		// get the datatypes corresponding to each column declared data
-		TableInformation tables = prefs.getTableInformation();
-		String[] tableOrderedNames = tables.getColumnOrderedNames();
-		String[] tabledOrderedDataTypes = tables.getColumnOrderedDataTypes();
-		// format each according to their data type and database type (for now use Oracle database type)
-		int[] userOrderIndices = new int[userOrdering.length];
-		for (int i = 0; i < userOrderIndices.length; i++) {
-			userOrderIndices[i] = UserDataFormatter.indexOf(tableOrderedNames, userOrdering[i]);
-		}
-		ArrayList<String> userOrderDataTypes = new ArrayList<String>();
-		for (int num: userOrderIndices) {
-			userOrderDataTypes.add(tabledOrderedDataTypes[num]);
-		}
-		for (int i = 0; i < rows.size(); i++) {
-			String[] toInsert = new String[rows.get(0).length];
-			for (int j = 0; j < userOrderDataTypes.size(); j++) {
-				SQLFormatter.format();
-			}
-		}
-		
-		*/
-//		return new ArrayList<String[]>();
-//	}
-	
-//	public static ArrayList<String[]> orderList(UserPreferences prefs, ArrayList<String[]> rows) {
-//		return new ArrayList<String[]>();
-//	}
 }
