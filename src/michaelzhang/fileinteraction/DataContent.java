@@ -27,7 +27,8 @@ public class DataContent {
 	 * @param rows	all the unmodified rows of a .csv file
 	 */
 	public DataContent(UserPreferences prefs, ArrayList<String[]> rows) {
-		this.deleteHeader(prefs, rows);
+		this.deleteHeader(prefs, rows); // deletes any extraneous first row
+		rows = UserDataFormatter.deleteEmptyColumns(rows, ""); // deletes any empty columns of the .csv file (assuming "" means a column is empty)
 		this.TABLE_FORMATTED_DATA = UserDataFormatter.fitDataToTable(prefs, rows);
 	}
 	
@@ -56,45 +57,5 @@ public class DataContent {
 	 */
 	public String[][] getTableFormattedData() {
 		return this.TABLE_FORMATTED_DATA;
-	}
-	
-	
-
-//	/**
-//	 * Stores the rows of the .csv file in an appropriate format for later use.
-//	 * Appropriate format is dependent on the table's column order and the data types.
-//	 * If the user preference excludes a column's data, the placeholder will be "".
-//	 * @param prefs			user preferences
-//	 * @param csvAllRows	all of the rows from the .cvs file
-//	 */
-//	public CSVReader(UserPreferences prefs, ArrayList<String[]> csvAllRows) {
-//		boolean headers = prefs.getHeaderStatus(); // checks to see if .csv file has a header (true)
-//		if (headers) {
-//			csvAllRows.remove(0); // removes first index of the arrayList (corresponds to .csv column headers)
-//		}
-//		ArrayList<String[]> dataTypedList = UserDataFormatter.modDataTypes(prefs, csvAllRows); // modifies record values to reflect data type
-//		ArrayList<String[]> orderedList = UserDataFormatter.orderList(prefs, dataTypedList); // modifies arrayList so that the data is in the correct table ordering
-//		this.modRecords = this.toArray(orderedList);
-//	}
-//	/**
-//	 * Returns a String[][] array of an ArrayList<String[]>.
-//	 * @param toArray	the ArrayList to be a String[][] array
-//	 * @return			the String[][] array of the ArrayList
-//	 */
-//	private String[][] toArray(ArrayList<String[]> toArray) {
-//		return toArray.toArray(new String[toArray.size()][toArray.get(0).length]);
-//	}
-//	/**
-//	 * Returns the modified records.
-//	 * The modified records: (1) the index of each record corresponds to the ordered table column.
-//	 * 						 (2) the entries of each record has the correct formatting to be
-//	 * 							 directly inserted to a SQL String statement
-//	 * @return	correctly formatted .cvs records
-//	 */
-//	public String[][] getModRecords() {
-//		return this.modRecords;
-//	}
-	
-	
-	
+	}	
 }

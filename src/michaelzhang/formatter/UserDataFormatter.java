@@ -2,6 +2,7 @@ package michaelzhang.formatter;
 
 import michaelzhang.user.UserPreferences;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Iterator;
 import java.util.Map;
 
@@ -15,7 +16,7 @@ public class UserDataFormatter {
 	/**
 	 * Transposes a 2D String[][] array and returns it.
 	 * @param matrix	the 2D String[][] to be transposed
-	 * @return	the transposed STring[][] array
+	 * @return	the transposed String[][] array
 	 */
 	public static String[][] transpose(String[][] matrix) {
 		int m = matrix.length;
@@ -27,6 +28,46 @@ public class UserDataFormatter {
 	        }
 	    }
 	    return trasposedMatrix;
+	}
+	
+	/**
+	 * Transposes an ArrayList<String[]> while preserving the ArrayList<String[]> structure and returns it.
+	 * @param matrix	the ArrayList<String[]> to be transposed
+	 * @return	the transposed ArrayList<String[]> object
+	 */
+	public static ArrayList<String[]> transposeArrayList(ArrayList<String[]> matrix) {
+		return UserDataFormatter.twoDimArrayList(UserDataFormatter.transpose(UserDataFormatter.twoDimArray(matrix)));
+	}
+	
+	/**
+	 * Returns an ArrayList<String[]> where the String[] arrays that are completely filled with the emptyValue parameter are removed.
+	 * @param rows			the rows to be stripped of empty columns
+	 * @param emptyValue	the String value to check for
+	 * @return	an ArrayList<String[]> where filled emptyValue columns of the String[] array are removed
+	 */
+	public static ArrayList<String[]> deleteEmptyColumns(ArrayList<String[]> rows, String emptyValue) {
+		ArrayList<String[]> tempTranspose = UserDataFormatter.transposeArrayList(rows); // transpose data parameter into an ArrayList<String[]> structure
+		for (int i = tempTranspose.size() - 1; i >= 0; i--) {
+			if (UserDataFormatter.isFullOf(tempTranspose.get(i), emptyValue)) { // check to see if a column is filled with "".
+				tempTranspose.remove(i);
+			}
+		}
+		return UserDataFormatter.transposeArrayList(tempTranspose); // transpose it back to an ArrayList<String[]>
+	}
+	
+	/**
+	 * Checks to see if the passed in String[] array is filled with the String
+	 * Returns true if the array is filled with the string, false otherwise.
+	 * @param str	the string
+	 * @return	true if array is filled with the string, false otherwise
+	 */
+	public static boolean isFullOf(String[] a, String str) {
+		for (int i = 0; i < a.length; i++) {
+			if (!a[i].equals(str)) {
+				return false;
+			}
+		}
+		return true;
 	}
 	
 	/**
@@ -91,5 +132,14 @@ public class UserDataFormatter {
 	 */
 	public static String[][] twoDimArray(ArrayList<String[]> toArray) {
 		return toArray.toArray(new String[toArray.size()][toArray.get(0).length]);
+	}
+	
+	/**
+	 * Returns an ArrayList<String[]> of a String[][] array.
+	 * @param toArrayList	the array to be an ArrayList<String[]>
+	 * @return	the ArrayList<String[]> of the array
+	 */
+	public static ArrayList<String[]> twoDimArrayList(String[][] toArrayList) {
+		return new ArrayList<>(Arrays.asList(toArrayList));
 	}
 }

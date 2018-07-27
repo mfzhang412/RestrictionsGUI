@@ -1,5 +1,4 @@
 package michaelzhang.formatter;
-import java.util.Map;
 
 /*
  * Contains all the format options for converting a value to the correct representation in SQL language.
