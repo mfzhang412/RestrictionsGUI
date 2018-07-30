@@ -1,10 +1,9 @@
 package michaelzhang.formatter;
 
-import michaelzhang.user.UserPreferences;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
-import java.util.Map;
+import java.util.HashMap;
 
 /**
  * This class acts as a logic container for formatting incoming user data to fit a table in a database.
@@ -58,6 +57,7 @@ public class UserDataFormatter {
 	/**
 	 * Checks to see if the passed in String[] array is filled with the String
 	 * Returns true if the array is filled with the string, false otherwise.
+	 * @param a		the String[] array
 	 * @param str	the string
 	 * @return	true if array is filled with the string, false otherwise
 	 */
@@ -73,24 +73,24 @@ public class UserDataFormatter {
 	/**
 	 * Adjusts data to fit the column data types of the respective table.
 	 * Takes in the user entered in data and formats the data to return a String[][] array
-	 * or all the records correctly. The String[][] array will have records and their respective
+	 * of all the records correctly. The String[][] array will have records and their respective
 	 * values in the order presented in the table. Values that are empty are represented by null.
 	 * Note this method does not modify the data types of the input data, it only rearranges the
 	 * data and adds columns where values were not entered by the user.
-	 * @param prefs	UserPreferences object to obtain the table specifications
-	 * @param rows	the data to be fit to the table format
+	 * @param userColumnOrdering	the order of the entered in data by the user
+	 * @param tableColumnOrder		map of table column names in order
+	 * @param rows					the data to be fit to the table format
 	 * @return
 	 */
-	public static String[][] fitDataToTable(UserPreferences prefs, ArrayList<String[]> rows) {
+	public static String[][] fitDataToTable(String[] userColumnOrdering,
+			HashMap<String,String> tableColumnOrder, ArrayList<String[]> rows) {
+		
 		String[][] matrix = UserDataFormatter.twoDimArray(rows); // converts rows to String[][]
 		String[][] transposedRows = UserDataFormatter.transpose(matrix); // transposes String[][]
 		
-		Map<String,String> hash = prefs.getTableInformation().getColumnOrder(); // creates mapping of table column names in order
-		Iterator<String> iter = hash.keySet().iterator(); // creates iterator to go through the mapping
+		Iterator<String> iter = tableColumnOrder.keySet().iterator(); // creates iterator to go through the mapping
 		
 		ArrayList<String[]> transModRows = new ArrayList<String[]>(); // the ArrayList to be returned modified
-		
-		String[] userColumnOrdering = prefs.getColumnOrdering(); // the order of the entered in data by the user
 		
 		int numRecords = transposedRows.length; // the number of records entered in
 		

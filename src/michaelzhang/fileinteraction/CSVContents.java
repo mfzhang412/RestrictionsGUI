@@ -14,14 +14,14 @@ import java.util.ArrayList;
  * 
  */
 public class CSVContents {
-	/* the location of the .csv file */
+	/* The location of the .csv file. */
 	final private String FILE_LOCATION;
-	/* contains all the rows of the .csv file (rows are added in one by one until .csv file ends) */
+	/* Contains all the rows of the .csv file (rows are added in one by one until .csv file ends). */
 	private ArrayList<String[]> allRows;
 	
 	/**
-	 * Saves the location of the file as an instance variable and reads all the contents of the file.
-	 * @param loc	the location of the .csv file
+	 * Saves the location of the file as an instance variable and reads the contents of the file.
+	 * @param loc	the location of the .txt or .csv file
 	 */
 	public CSVContents(String loc) {
 		this.FILE_LOCATION = loc;
@@ -30,8 +30,8 @@ public class CSVContents {
 	}
 	
 	/**
-	 * Reads all the contents of the .csv file and stores them in records instance variable.
-	 * Returns true if successfully stored all records, false otherwise.
+	 * Reads all the contents of the .csv file and stores them as an instance variable.
+	 * Returns true if successfully stored all contents, false otherwise.
 	 * @return	true if all records stored, false otherwise
 	 */
 	private boolean readCSVContents() {

@@ -1,6 +1,5 @@
 package michaelzhang.formatter;
 
-import michaelzhang.user.UserPreferences;
 import java.util.Map;
 import java.util.HashMap;
 
@@ -25,7 +24,7 @@ public class DataTypeFormatter {
 	 * Each data type will map to a specific string that will then later be formatted to hold the
 	 * correct SQL data. For example, data type DATE maps to TO_DATE('%S', 'YYYY-MM-DD'), where %s
 	 * will be formatted with the correct format using String.format(format, args).
-	 * @return
+	 * @return	HashMap<String,String> of data type to String format mapping
 	 */
 	private static HashMap<String,String> createOracleMap() {
 		HashMap<String,String> map = new HashMap<String,String>();
@@ -43,7 +42,7 @@ public class DataTypeFormatter {
 	 * Each data type will map to a specific string that will then later be formatted to hold the
 	 * correct SQL data. For example, data type DATE maps to TO_DATE('%S', 'YYYY-MM-DD'), where %s
 	 * will be formatted with the correct format using String.format(format, args).
-	 * @return
+	 * @return	HashMap<String,String> of data type to String format mapping
 	 */
 	private static HashMap<String,String> createMySQLMap() {
 		HashMap<String,String> map = new HashMap<String,String>();
@@ -55,7 +54,7 @@ public class DataTypeFormatter {
 	 * Each data type will map to a specific string that will then later be formatted to hold the
 	 * correct SQL data. For example, data type DATE maps to TO_DATE('%S', 'YYYY-MM-DD'), where %s
 	 * will be formatted with the correct format using String.format(format, args).
-	 * @return
+	 * @return	HashMap<String,String> of data type to String format mapping
 	 */
 	private static HashMap<String,String> createPostgreSQLMap() {
 		HashMap<String,String> map = new HashMap<String,String>();
@@ -85,15 +84,14 @@ public class DataTypeFormatter {
 	 * Formats an array of String[][] records into their correct Oracle SQL data types.
 	 * For example, in Oracle a date value of 9999-12-31 in the record would be formatted to
 	 * TO_DATE('9999-12-31', 'YYYY-MM-DD').
-	 * @param prefs		UserPreferences object
-	 * @param records	the records to be formatted
+	 * @param columnOrderedDataTypes	the table's data types in correct order
+	 * @param records					the records to be formatted
 	 * @return	the formatted records
 	 */
-	public static String[][] oracleFormatter(UserPreferences prefs, String[][] records) {
-		String[] dataTypes = prefs.getTableInformation().getColumnOrderedDataTypes();
+	public static String[][] oracleFormatter(String[] columnOrderedDataTypes, String[][] records) {
 		String[][] r = new String[records.length][records[0].length];
 		for (int i = 0; i < records.length; i++) {
-			r[i] = DataTypeFormatter.oracleSingleFormatter(dataTypes, records[i]);
+			r[i] = DataTypeFormatter.oracleSingleFormatter(columnOrderedDataTypes, records[i]);
 		}
 		return r;
 	}

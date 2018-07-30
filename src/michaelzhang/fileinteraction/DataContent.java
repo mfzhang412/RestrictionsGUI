@@ -1,8 +1,8 @@
 package michaelzhang.fileinteraction;
 
-import michaelzhang.user.UserPreferences;
 import michaelzhang.formatter.UserDataFormatter;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * Takes the entire content of an ArrayList<String[]> and stores it according to an appropriate format.
@@ -20,16 +20,18 @@ public class DataContent {
 	/**
 	 * Formats an ArrayList<String[]> object according to its corresponding table.
 	 * Take an ArrayList<String[]> representation of the rows in a .csv file, shears the
-	 * first row if UserPreferences says it's just a row of column headers, formats the
-	 * actual data according to its corresponding table (from UserPreferences) and saves it
-	 * as an instance variable.
-	 * @param prefs	the preferences specified by a user
-	 * @param rows	all the unmodified rows of a .csv file
+	 * first row if there is a header, formats the actual data according to its
+	 * corresponding table (from UserPreferences) and saves it as an instance variable.
+	 * @param header				true if there is a header to be deleted (first row), false otherwise
+	 * @param rows					all the unmodified rows of a .csv file
+	 * @param userColumnOrdering	the order of the entered in data by the user
+	 * @param tableColumnOrder		map of table column names in order
 	 */
-	public DataContent(UserPreferences prefs, ArrayList<String[]> rows) {
-		this.deleteHeader(prefs, rows); // deletes any extraneous first row
+	public DataContent(boolean header, ArrayList<String[]> rows,
+			String[] userColumnOrdering, HashMap<String,String> tableColumnOrder) {
+		this.deleteHeader(header, rows); // deletes any extraneous first row
 		rows = UserDataFormatter.deleteEmptyColumns(rows, ""); // deletes any empty columns of the .csv file (assuming "" means a column is empty)
-		this.TABLE_FORMATTED_DATA = UserDataFormatter.fitDataToTable(prefs, rows);
+		this.TABLE_FORMATTED_DATA = UserDataFormatter.fitDataToTable(userColumnOrdering, tableColumnOrder, rows);
 	}
 	
 	/**
@@ -37,13 +39,12 @@ public class DataContent {
 	 * Deletion occurs based upon UserPreferences: if the UserPreferences object has specified that
 	 * the first row is a header row. Returns true if the first entry of the ArrayList<String[]> has been
 	 * sheared off, false otherwise.
-	 * @param prefs	the preferences specified by a user
-	 * @param rows	all the unmodified rows of a .csv file
+	 * @param header	true if there is a header to be deleted (first row), false otherwise
+	 * @param rows		all the unmodified rows of a .csv file
 	 * @return	whether the first row has been deleted
 	 */
-	private boolean deleteHeader(UserPreferences prefs, ArrayList<String[]> rows) {
-		boolean header = prefs.getHeaderStatus(); // checks to see if .csv file has a header(true), false otherwise
-		if (header) {
+	private boolean deleteHeader(boolean header, ArrayList<String[]> rows) {
+		if (header) { // checks to see if .csv file has a header(true), false otherwise
 			rows.remove(0); // removes first index of the arrayList (corresponds to .csv column headers)
 			return true;
 		}
@@ -57,5 +58,5 @@ public class DataContent {
 	 */
 	public String[][] getTableFormattedData() {
 		return this.TABLE_FORMATTED_DATA;
-	}	
+	}
 }

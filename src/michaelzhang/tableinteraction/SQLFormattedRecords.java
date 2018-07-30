@@ -1,6 +1,6 @@
 package michaelzhang.tableinteraction;
 
-import michaelzhang.user.UserPreferences;
+import michaelzhang.tablesinformation.TableInformation;
 import michaelzhang.formatter.DataTypeFormatter;
 import michaelzhang.formatter.SQLCommands;
 
@@ -26,14 +26,15 @@ public class SQLFormattedRecords {
 	 * For example, if a record is ["John", "Doe", "9999-12-31"], then the INSERT_RECORD_STRINGS stores the
 	 * following String: "INSERT INTO <table name> (FIRST_NAME, LAST_NAME, BIRTHDATE) VALUES ('John', 'Doe',
 	 * TO_DATE('9999-12-31', 'YYYY-MM-DD')".
-	 * @param prefs		UserPreferences object
-	 * @param records	unformatted SQL records
+	 * @param databaseType	String of the database type ("Oracle", "MySQL", "PostgreSQL", etc.)
+	 * @param table			TableInformation object being interacted with
+	 * @param records		unformatted SQL records
 	 */
-	public SQLFormattedRecords(UserPreferences prefs, String[][] records) {
-		String databaseType = prefs.getDatabaseType();
+	public SQLFormattedRecords(String databaseType, TableInformation table, String[][] records) {
+		String[] columnOrderedDataTypes = table.getColumnOrderedDataTypes();
 		String[][] r = null;
 		if (databaseType.equals("Oracle")) {
-			r = DataTypeFormatter.oracleFormatter(prefs, records);
+			r = DataTypeFormatter.oracleFormatter(columnOrderedDataTypes, records);
 		}
 //		if (databaseType.equals("PostgreSQL")) {
 //			r = DataTypeFormatter.postgreSQLFormatter(prefs, records);
@@ -42,7 +43,7 @@ public class SQLFormattedRecords {
 //			r = DataTypeFormatter.mySQLFormatter(prefs, records);
 //		}
 		this.SQL_FORMATTED_DATA = r;
-		this.INSERT_RECORD_STRINGS = createInsertRecordStrings(prefs);
+		this.INSERT_RECORD_STRINGS = createInsertRecordStrings(table);
 	}
 	
 	/**
@@ -50,12 +51,12 @@ public class SQLFormattedRecords {
 	 * For example, if a record is ["John", "Doe", "9999-12-31"], then the INSERT_RECORD_STRINGS stores
 	 * the following String: "INSERT INTO <table name> (FIRST_NAME, LAST_NAME, BIRTHDATE) VALUES ('John',
 	 * 'Doe', TO_DATE('9999-12-31', 'YYYY-MM-DD')".
-	 * @param prefs
+	 * @param table	TableInformation object being interacted with
 	 * @return
 	 */
-	private String[] createInsertRecordStrings(UserPreferences prefs) {
-		String tableName = prefs.getTableInformation().getTableName();
-		String[] colNames = prefs.getTableInformation().getColumnOrderedNames();
+	private String[] createInsertRecordStrings(TableInformation table) {
+		String tableName = table.getTableName();
+		String[] colNames = table.getColumnOrderedNames();
 		String[] r = new String[SQL_FORMATTED_DATA.length];
 		for (int i = 0; i < this.SQL_FORMATTED_DATA.length; i++) {
 			r[i] = SQLCommands.insertionString(tableName, colNames, this.SQL_FORMATTED_DATA[i]);

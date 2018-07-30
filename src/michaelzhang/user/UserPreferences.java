@@ -19,7 +19,8 @@ public class UserPreferences {
 	private String jdbcDriver; // driver name
 	private String dbURL; // database URL
 	private String username; // database username credential
-	private String password; // // database password credential
+	private String password; // database password credential
+	private String fileLocation; // file location of .txt or .csv file
 	
 	/**
 	 * Creates a new UserPreferences object and sets the headerStatus to the default of false.
@@ -116,5 +117,13 @@ public class UserPreferences {
 	
 	public String getPassword() {
 		return this.password;
+	}
+	
+	public void setFileLocation(String loc) {
+		this.fileLocation = loc;
+	}
+	
+	public String getFileLocation() {
+		return this.fileLocation;
 	}
 }

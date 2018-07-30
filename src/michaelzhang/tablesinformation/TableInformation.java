@@ -1,6 +1,6 @@
 package michaelzhang.tablesinformation;
 
-import java.util.Map;
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 
 /**
@@ -17,7 +17,7 @@ public class TableInformation {
 	/* The name of the table taken from the database. */
 	final private String TABLE_NAME;
 	/* Table ordered LinkedHashTable with keys as the table's column names and values as the table's column data types. */
-	final private Map<String,String> COLUMN_ORDER;
+	final private HashMap<String,String> COLUMN_ORDER;
 	/* An identification code for the TableInformation object. Used to identify a TableInformation object. */
 	private String identification;
 	
@@ -93,7 +93,7 @@ public class TableInformation {
 	 * Note, the LinkedHashTable is ordered in the order of the table's columns.
 	 * @return	the LinkedHashTable of the table's column names and data types
 	 */
-	public Map<String,String> getColumnOrder() {
+	public HashMap<String,String> getColumnOrder() {
 		return this.COLUMN_ORDER;
 	}
 	
