@@ -16,6 +16,10 @@ public class UserPreferences {
 	private TableInformation table; // tablebeinginteractedwith
 	private TableCollection tableCollection;
 	private String databaseType; // Oracle, PostgreSQL, MySQL, etc.
+	private String jdbcDriver; // driver name
+	private String dbURL; // database URL
+	private String username; // database username credential
+	private String password; // // database password credential
 	
 	/**
 	 * Creates a new UserPreferences object and sets the headerStatus to the default of false.
@@ -80,5 +84,37 @@ public class UserPreferences {
 	
 	public String getDatabaseType() {
 		return this.databaseType;
+	}
+	
+	public void setJDBCDriver(String driver) {
+		this.jdbcDriver = driver;
+	}
+	
+	public String getJDBCDriver() {
+		return this.jdbcDriver;
+	}
+
+	public void setDatabaseURL(String url) {
+		this.dbURL = url;
+	}
+	
+	public String getDatabaseURL() {
+		return this.dbURL;
+	}
+
+	public void setUsername(String user) {
+		this.username = user;
+	}
+	
+	public String getUsername() {
+		return this.username;
+	}
+
+	public void setPassword(String pass) {
+		this.password = pass;
+	}
+	
+	public String getPassword() {
+		return this.password;
 	}
 }

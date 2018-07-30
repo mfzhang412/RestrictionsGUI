@@ -1,7 +1,8 @@
 package michaelzhang.formatter;
 
 /**
- * Formats strings for the basic SQL commands: create, select, modify/update, and delete for record(s) in a table.
+ * Formats strings for the basic SQL commands:create, select, modify/update, and delete for
+ * record(s) in a table.
  * @author Michael Zhang
  *
  */
