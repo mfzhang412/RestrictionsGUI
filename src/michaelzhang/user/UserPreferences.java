@@ -15,6 +15,7 @@ public class UserPreferences {
 	private String[] userColumnOrdering; // whichcolumncorrespondstowhatdataenteredinbyuserbasicallywhatorderarethecolumns; //stores column ordering
 	private TableInformation table; // tablebeinginteractedwith
 	private TableCollection tableCollection;
+	private String databaseType; // Oracle, PostgreSQL, MySQL, etc.
 	
 	/**
 	 * Creates a new UserPreferences object and sets the headerStatus to the default of false.
@@ -46,7 +47,7 @@ public class UserPreferences {
 	 * The passed in method should contain the table column names in the order that the data
 	 * was entered in the .csv or .txt file. For example, if the user enters names in the first
 	 * column and birthdays in the third column, then the passed in String[] array should have
-	 * ["NAME", ,"BIRTHDAY"].
+	 * ["NAME", "","BIRTHDAY"].
 	 * @param userOrder
 	 */
 	public void setColumnOrdering(String[] userOrder) {
@@ -71,5 +72,13 @@ public class UserPreferences {
 	
 	public TableCollection getTableCollection() {
 		return this.tableCollection;
+	}
+	
+	public void setDatabaseType(String type) {
+		this.databaseType = type;
+	}
+	
+	public String getDatabaseType() {
+		return this.databaseType;
 	}
 }

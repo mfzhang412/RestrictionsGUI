@@ -5,4 +5,11 @@ package michaelzhang.tableinteraction;
  */
 public class InsertUserRecords {
 	
+	
+	
+	public static void insertRecords(String tableName, String[][] sqlFormattedRecords) {
+		for (int i = 0; i < sqlFormattedRecords.length; i++) {
+			
+		}
+	}
 }
