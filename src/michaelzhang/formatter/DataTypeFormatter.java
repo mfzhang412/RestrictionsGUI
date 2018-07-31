@@ -73,8 +73,12 @@ public class DataTypeFormatter {
 			if (record[i] == null) {
 				r[i] = "NULL";
 			} else {
-				String formatString = ORACLE_FORMAT.get(dataTypes[i]);
-				r[i] = String.format(formatString, record[i]);
+				String formatString = null;
+				if ((formatString = ORACLE_FORMAT.get(dataTypes[i])) == null) {
+					r[i] = new String(record[i]);
+				} else {
+					r[i] = String.format(formatString, record[i]);
+				}
 			}
 		}
 		return r;
