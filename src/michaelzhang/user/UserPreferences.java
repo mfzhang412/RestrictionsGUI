@@ -15,7 +15,7 @@ public class UserPreferences {
 	private String[] userColumnOrdering; // whichcolumncorrespondstowhatdataenteredinbyuserbasicallywhatorderarethecolumns; //stores column ordering
 	private TableInformation table; // tablebeinginteractedwith
 	private TableCollection tableCollection;
-	private String databaseType; // Oracle, PostgreSQL, MySQL, etc.
+	private String databaseType; // Oracle, PostgreSQL, MySQL, etc. (in upper case)
 	private String jdbcDriver; // driver name
 	private String dbURL; // database URL
 	private String username; // database username credential
@@ -80,7 +80,7 @@ public class UserPreferences {
 	}
 	
 	public void setDatabaseType(String type) {
-		this.databaseType = type;
+		this.databaseType = type.toUpperCase();
 	}
 	
 	public String getDatabaseType() {

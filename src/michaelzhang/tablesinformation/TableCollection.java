@@ -1,7 +1,12 @@
 package michaelzhang.tablesinformation;
 
-import michaelzhang.user.UserPreferences;
+import java.sql.Connection;
+import java.sql.DatabaseMetaData;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
+
+import michaelzhang.user.UserPreferences;
 
 /**
  * Structure to contain all of the TableInformation objects in an accessed database.
@@ -22,13 +27,47 @@ public class TableCollection {
 	 * object, save them in an ArrayList.
 	 * @param prefs	object that contains database access information
 	 */
-	public TableCollection(UserPreferences prefs) { //could make this an entirely new class and simply have a TableCollection constructor that takes no parameters but have an addTable(TableInformation table) method. (this is probably better, will implement it later).
-	// make this part of a new class to gather table information and create Table objects to then pass into an addTable method in TableCollecion class.	
-		// do: get the database from UserPreferences
-		// do: run a loop or get some way to create a bunch of TableInformation objects for
-			// each table in the database. add it to an ArrayList<TableInformation>
-		// do: convert ArrayList<TableInformation> to a temporary array
-		// do: set TABLES instance variable to the temporary array
+	public TableCollection(Connection conn, String databaseName, UserPreferences prefs) {
+		ResultSet rs = null;
+		try {
+			DatabaseMetaData md = conn.getMetaData();
+			rs = md.getTables(databaseName, null, "TABLE_NAME", null);
+			while (rs.next()) {
+				String tableName = rs.getString(3);
+				ResultSet tableInfo = null;
+				try {
+					tableInfo = md.getColumns(null, null, tableName, null);
+					int size = tableInfo.getInt("COLUMN_SIZE");
+					String[] colNames = new String[size];
+					String[] colTypes = new String[size];
+					int i = 0;
+					while (tableInfo.next()) {
+						colNames[i] = tableInfo.getString("COLUMN_NAME");
+						colTypes[i] = tableInfo.getString("TYPE_NAME");
+						i++;
+					}
+					TableInformation t = new TableInformation(tableName, colNames, colTypes);
+					this.addTable(t);
+				} catch (SQLException se) {
+					se.printStackTrace();
+				} finally {
+					try {
+						if (tableInfo != null) tableInfo.close();
+					} catch (SQLException e) {
+						/* do nothing */
+					}
+				}
+			}
+		} catch (SQLException se) {
+			se.printStackTrace();
+		} finally {
+			try {
+				if (rs != null) rs.close();
+			} catch (SQLException e) {
+				/* do nothing */
+			}
+		}
+		
 	}
 	
 	/**

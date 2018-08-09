@@ -22,7 +22,24 @@ public class GraphicalUserInterface {
 	 */
 	public static void main(String[] args) {
 		UserPreferences prefs = new UserPreferences();
-		//prefs.set(); // set everything (consider making a builder class for UserPreferences)
+		
+		
+		
+		prefs.setDatabaseURL(url);
+		prefs.setJDBCDriver(driver);
+		prefs.setUsername(user);
+		prefs.setPassword(pass);
+		prefs.setDatabaseType(type);
+		
+		TableCollection tc = new TableCollection(conn, databaseName, prefs);
+		prefs.setTableCollection(tc);
+		prefs.setTableInformation(prefs.getTableCollection().getTable(id));
+		
+		prefs.setFileLocation(loc);
+		prefs.setHeaderStatus(b);
+		prefs.setColumnOrdering(userOrder);
+		
+		
 		
 		String fileLocation = prefs.getFileLocation();
 		CSVContents csvContents = new CSVContents(fileLocation);
@@ -44,3 +61,49 @@ public class GraphicalUserInterface {
 		else System.out.println("Error. Some records successfully inserted.");
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

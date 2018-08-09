@@ -33,13 +33,13 @@ public class SQLFormattedRecords {
 	public SQLFormattedRecords(String databaseType, TableInformation table, String[][] records) {
 		String[] columnOrderedDataTypes = table.getColumnOrderedDataTypes();
 		String[][] r = null;
-		if (databaseType.equals("Oracle")) {
+		if (databaseType.toUpperCase().equals("ORACLE")) {
 			r = DataTypeFormatter.oracleFormatter(columnOrderedDataTypes, records);
 		}
-//		if (databaseType.equals("PostgreSQL")) {
+//		if (databaseType.toUpperCase().equals("POSTGRESQL")) {
 //			r = DataTypeFormatter.postgreSQLFormatter(prefs, records);
 //		}
-//		if (databaseType.equals("MySQL")) {
+//		if (databaseType.toUpperCase().equals("MYSQL")) {
 //			r = DataTypeFormatter.mySQLFormatter(prefs, records);
 //		}
 		this.SQL_FORMATTED_DATA = r;
