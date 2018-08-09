@@ -1,6 +1,8 @@
 package michaelzhang.user;
 
-import michaelzhang.tablesinformation.*;
+import michaelzhang.databaseinformation.DatabaseInformation;
+import michaelzhang.tablesinformation.TableCollection;
+import michaelzhang.tablesinformation.TableInformation;
 
 /**
  * Dummy object to store all of the user preferences so as to allow for easier data acquisition by other classes.
@@ -15,11 +17,7 @@ public class UserPreferences {
 	private String[] userColumnOrdering; // whichcolumncorrespondstowhatdataenteredinbyuserbasicallywhatorderarethecolumns; //stores column ordering
 	private TableInformation table; // tablebeinginteractedwith
 	private TableCollection tableCollection;
-	private String databaseType; // Oracle, PostgreSQL, MySQL, etc. (in upper case)
-	private String jdbcDriver; // driver name
-	private String dbURL; // database URL
-	private String username; // database username credential
-	private String password; // database password credential
+	private DatabaseInformation dbInfo; // database information
 	private String fileLocation; // file location of .txt or .csv file
 	
 	/**
@@ -80,43 +78,43 @@ public class UserPreferences {
 	}
 	
 	public void setDatabaseType(String type) {
-		this.databaseType = type.toUpperCase();
+		this.dbInfo.setDatabaseType(type.toUpperCase());
 	}
 	
 	public String getDatabaseType() {
-		return this.databaseType;
+		return this.dbInfo.getDatabaseType();
 	}
 	
 	public void setJDBCDriver(String driver) {
-		this.jdbcDriver = driver;
+		this.dbInfo.setJDBCDriver(driver);
 	}
 	
 	public String getJDBCDriver() {
-		return this.jdbcDriver;
+		return this.dbInfo.getJDBCDriver();
 	}
 
 	public void setDatabaseURL(String url) {
-		this.dbURL = url;
+		this.dbInfo.setDatabaseURL(url);
 	}
 	
 	public String getDatabaseURL() {
-		return this.dbURL;
+		return this.dbInfo.getDatabaseURL();
 	}
 
 	public void setUsername(String user) {
-		this.username = user;
+		this.dbInfo.setUsername(user);
 	}
 	
 	public String getUsername() {
-		return this.username;
+		return this.dbInfo.getUsername();
 	}
 
 	public void setPassword(String pass) {
-		this.password = pass;
+		this.dbInfo.setPassword(pass);
 	}
 	
 	public String getPassword() {
-		return this.password;
+		return this.dbInfo.getPassword();
 	}
 	
 	public void setFileLocation(String loc) {
@@ -125,5 +123,13 @@ public class UserPreferences {
 	
 	public String getFileLocation() {
 		return this.fileLocation;
+	}
+
+	public DatabaseInformation getDatabaseInformation() {
+		return dbInfo;
+	}
+
+	public void setDatabaseInformation(DatabaseInformation dbInfo) {
+		this.dbInfo = dbInfo;
 	}
 }

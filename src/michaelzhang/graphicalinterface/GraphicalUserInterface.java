@@ -1,11 +1,16 @@
 package michaelzhang.graphicalinterface;
 
-import michaelzhang.fileinteraction.*;
-import michaelzhang.tableinteraction.*;
-import michaelzhang.tablesinformation.*;
-import michaelzhang.user.*;
 import java.util.ArrayList;
 import java.util.HashMap;
+
+import michaelzhang.databaseinformation.DatabaseInformation;
+import michaelzhang.fileinteraction.CSVContents;
+import michaelzhang.fileinteraction.DataContent;
+import michaelzhang.tableinteraction.InsertUserRecords;
+import michaelzhang.tableinteraction.SQLFormattedRecords;
+import michaelzhang.tablesinformation.TableCollection;
+import michaelzhang.tablesinformation.TableInformation;
+import michaelzhang.user.UserPreferences;
 
 /*
  * displays the interface that the user will be working with.
@@ -24,12 +29,8 @@ public class GraphicalUserInterface {
 		UserPreferences prefs = new UserPreferences();
 		
 		
-		
-		prefs.setDatabaseURL(url);
-		prefs.setJDBCDriver(driver);
-		prefs.setUsername(user);
-		prefs.setPassword(pass);
-		prefs.setDatabaseType(type);
+		DatabaseInformation dbInfo = new DatabaseInformation(databaseURL, jdbcDriver, username, password, databaseType);
+		prefs.setDatabaseInformation(dbInfo);
 		
 		TableCollection tc = new TableCollection(conn, databaseName, prefs);
 		prefs.setTableCollection(tc);
