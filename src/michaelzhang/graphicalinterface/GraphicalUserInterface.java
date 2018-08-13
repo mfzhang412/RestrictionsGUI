@@ -19,27 +19,32 @@ import michaelzhang.user.UserPreferences;
  * a column selector that will tell which column in the .csv corresponds to what data,
  * a task number input dialogue, whether they want to delete, update, or insert records.
  */
+
+/**
+ * Displays the interface that the user will be interacting with.
+ * This class is also the entry point for the application.
+ * @author michael.zhang
+ *
+ */
 public class GraphicalUserInterface {
 	
 	/**
-	 * Main method.
+	 * Entry point for the application.
 	 * @param args	arguments
 	 */
 	public static void main(String[] args) {
 		UserPreferences prefs = new UserPreferences();
-		
 		
 		DatabaseInformation dbInfo = new DatabaseInformation(databaseURL, jdbcDriver, username, password, databaseType);
 		prefs.setDatabaseInformation(dbInfo);
 		
 		TableCollection tc = new TableCollection(conn, databaseName, prefs);
 		prefs.setTableCollection(tc);
-		prefs.setTableInformation(prefs.getTableCollection().getTable(id));
+		prefs.setTableInformation(prefs.getTableCollection().getTable(tableName));
 		
 		prefs.setFileLocation(loc);
 		prefs.setHeaderStatus(b);
 		prefs.setColumnOrdering(userOrder);
-		
 		
 		
 		String fileLocation = prefs.getFileLocation();
