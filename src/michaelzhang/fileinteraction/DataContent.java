@@ -14,12 +14,12 @@ import java.util.HashMap;
  * 
  */
 public class DataContent {
-	/* All of the records from the .csv file in correct table ordering. Empty values are null. */
+	/* All of the records from the .csv file in correct table ordering. Empty values are null */
 	final private String[][] TABLE_FORMATTED_DATA;
 	
 	/**
-	 * Formats an ArrayList<String[]> object according to its corresponding table.
-	 * Take an ArrayList<String[]> representation of the rows in a .csv file, shears the
+	 * Format an ArrayList<String[]> object according to its corresponding table.
+	 * Take an ArrayList<String[]> representation of the rows in a .csv file, shear the
 	 * first row if there is a header, formats the actual data according to its
 	 * corresponding table (from UserPreferences) and saves it as an instance variable.
 	 * @param header				true if there is a header to be deleted (first row), false otherwise
@@ -35,7 +35,7 @@ public class DataContent {
 	}
 	
 	/**
-	 * Deletes the first entry of an ArrayList<String[]> if it's a header row (contains no meaningful data).
+	 * Delete the first entry of an ArrayList<String[]> if it's a header row (contains no meaningful data).
 	 * Deletion occurs based upon UserPreferences: if the UserPreferences object has specified that
 	 * the first row is a header row. Returns true if the first entry of the ArrayList<String[]> has been
 	 * sheared off, false otherwise.
@@ -52,7 +52,7 @@ public class DataContent {
 	}
 	
 	/**
-	 * Returns the formatted data where each index within a record corresponds to the table's column.
+	 * Return the formatted data where each index within a record corresponds to the table's column.
 	 * Empty values within a record are represented as null.
 	 * @return	the formatted data according to a table
 	 */

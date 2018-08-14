@@ -20,7 +20,7 @@ public class DataTypeFormatter {
 	final static Map<String,String> POSTGRESQL_FORMAT = createPostgreSQLMap();
 	
 	/**
-	 * Creates a hash map that maps a data type to a string to be formatted in an Oracle SQL database type.
+	 * Create a hash map that maps a data type to a string to be formatted in an Oracle SQL database type.
 	 * Each data type will map to a specific string that will then later be formatted to hold the
 	 * correct SQL data. For example, data type DATE maps to TO_DATE('%S', 'YYYY-MM-DD'), where %s
 	 * will be formatted with the correct format using String.format(format, args).
@@ -38,7 +38,7 @@ public class DataTypeFormatter {
 	}
 	
 	/**
-	 * Creates a hash map that maps a data type to a string to be formatted in a MySQL database type.
+	 * Create a hash map that maps a data type to a string to be formatted in a MySQL database type.
 	 * Each data type will map to a specific string that will then later be formatted to hold the
 	 * correct SQL data. For example, data type DATE maps to TO_DATE('%S', 'YYYY-MM-DD'), where %s
 	 * will be formatted with the correct format using String.format(format, args).
@@ -50,7 +50,7 @@ public class DataTypeFormatter {
 	}
 	
 	/**
-	 * Creates a hash map that maps a data type to a string to be formatted in a PostgreSQL database type.
+	 * Create a hash map that maps a data type to a string to be formatted in a PostgreSQL database type.
 	 * Each data type will map to a specific string that will then later be formatted to hold the
 	 * correct SQL data. For example, data type DATE maps to TO_DATE('%S', 'YYYY-MM-DD'), where %s
 	 * will be formatted with the correct format using String.format(format, args).
@@ -62,7 +62,7 @@ public class DataTypeFormatter {
 	}
 	
 	/**
-	 * Formats a record into the correct Oracle SQL data type.
+	 * Format a record into the correct Oracle SQL data type.
 	 * @param dataTypes	the array of data types
 	 * @param record	the record to be formatted
 	 * @return	the formatted record
@@ -85,7 +85,7 @@ public class DataTypeFormatter {
 	}
 	
 	/**
-	 * Formats an array of String[][] records into their correct Oracle SQL data types.
+	 * Format an array of String[][] records into their correct Oracle SQL data types.
 	 * For example, in Oracle a date value of 9999-12-31 in the record would be formatted to
 	 * TO_DATE('9999-12-31', 'YYYY-MM-DD').
 	 * @param columnOrderedDataTypes	the table's data types in correct order

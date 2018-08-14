@@ -13,7 +13,7 @@ import java.util.HashMap;
 public class UserDataFormatter {
 	
 	/**
-	 * Transposes a 2D String[][] array and returns it.
+	 * Transpose a 2D String[][] array.
 	 * @param matrix	the 2D String[][] to be transposed
 	 * @return	the transposed String[][] array
 	 */
@@ -30,7 +30,7 @@ public class UserDataFormatter {
 	}
 	
 	/**
-	 * Transposes an ArrayList<String[]> while preserving the ArrayList<String[]> structure and returns it.
+	 * Transpose an ArrayList<String[]> while preserving the ArrayList<String[]> structure.
 	 * @param matrix	the ArrayList<String[]> to be transposed
 	 * @return	the transposed ArrayList<String[]> object
 	 */
@@ -39,7 +39,7 @@ public class UserDataFormatter {
 	}
 	
 	/**
-	 * Returns an ArrayList<String[]> where the String[] arrays that are completely filled with the emptyValue parameter are removed.
+	 * Return an ArrayList<String[]> where the String[] arrays completely filled with the emptyValue parameter are removed.
 	 * @param rows			the rows to be stripped of empty columns
 	 * @param emptyValue	the String value to check for
 	 * @return	an ArrayList<String[]> where filled emptyValue columns of the String[] array are removed
@@ -55,7 +55,7 @@ public class UserDataFormatter {
 	}
 	
 	/**
-	 * Checks to see if the passed in String[] array is filled with the String
+	 * Check to see if the passed in String[] array is filled with the String.
 	 * Returns true if the array is filled with the string, false otherwise.
 	 * @param a		the String[] array
 	 * @param str	the string
@@ -71,7 +71,7 @@ public class UserDataFormatter {
 	}
 	
 	/**
-	 * Adjusts data to fit the column data types of the respective table.
+	 * Adjust data to fit the column data types of the respective table.
 	 * Takes in the user entered in data and formats the data to return a String[][] array
 	 * of all the records correctly. The String[][] array will have records and their respective
 	 * values in the order presented in the table. Values that are empty are represented by null.
@@ -108,7 +108,7 @@ public class UserDataFormatter {
 	}
 	
 	/**
-	 * Returns the first index of a String in a String[] array, -1 if the String is not in the array.
+	 * Return the first index of a String in a String[] array, -1 if the String is not in the array.
 	 * @param array	the array
 	 * @param str	the string to find in the array
 	 * @return	the index of the first occurrence of a String, -1 if String not in array
@@ -126,7 +126,7 @@ public class UserDataFormatter {
 	}
 	
 	/**
-	 * Returns a String[][] array of an ArrayList<String[]>.
+	 * Return a String[][] array of an ArrayList<String[]>.
 	 * @param toArray	the ArrayList to be a String[][] array
 	 * @return			the String[][] array of the ArrayList
 	 */
@@ -135,7 +135,7 @@ public class UserDataFormatter {
 	}
 	
 	/**
-	 * Returns an ArrayList<String[]> of a String[][] array.
+	 * Return an ArrayList<String[]> of a String[][] array.
 	 * @param toArrayList	the array to be an ArrayList<String[]>
 	 * @return	the ArrayList<String[]> of the array
 	 */

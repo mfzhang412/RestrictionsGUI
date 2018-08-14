@@ -21,7 +21,7 @@ public class TableCollection {
 	private ArrayList<TableInformation> tables;
 	
 	/**
-	 * Fetches information corresponding to each table in a database and stores them in an ArrayList instance variable.
+	 * Fetch information corresponding to each table in a database and store them in an ArrayList instance variable.
 	 * Gathers information about each table in a database, creates a new TableInformation object and
 	 * adds that to a list. Once all of the tables in the database have been represented as a TableInformation
 	 * object, save them in an ArrayList.
@@ -71,7 +71,7 @@ public class TableCollection {
 	}
 	
 	/**
-	 * Adds a TableInformation object to an ArrayList<TableInformation> collection.
+	 * Add a TableInformation object to an ArrayList<TableInformation> collection.
 	 * Returns true if the TableInformation object was inserted and false if that object
 	 * already exists in the collection.
 	 * @param table	the TableInformation object to be inserted
@@ -82,7 +82,7 @@ public class TableCollection {
 	}
 	
 	/**
-	 * Returns a specific TableInformation object.
+	 * Return a specific TableInformation object.
 	 * If the identification issued in the parameter is the same as a TableInformation
 	 * object's identification, then that TableInformation object will be returned. Note,
 	 * if id doesn't match any TableInformation object's identification, null will be
@@ -101,7 +101,7 @@ public class TableCollection {
 	}
 	
 	/**
-	 * Returns an array of TableInformation objects.
+	 * Return an array of TableInformation objects.
 	 * The array will contain a TableInformation for every table in UserPreferences specified database.
 	 * @return
 	 */

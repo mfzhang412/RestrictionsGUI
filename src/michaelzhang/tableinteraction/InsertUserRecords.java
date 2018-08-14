@@ -14,7 +14,7 @@ import java.sql.SQLException;
 public class InsertUserRecords {
 	
 	/**
-	 * Inserts records into a table.
+	 * Insert records into the table defined in the UserPreferences object.
 	 * @param prefs					UserPreferences object
 	 * @param sqlFormattedRecords	array of Strings of SQL queries
 	 * @return	true if all records inserted successfully, false otherwise

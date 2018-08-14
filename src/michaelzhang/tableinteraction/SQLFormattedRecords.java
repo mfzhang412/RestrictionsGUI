@@ -19,7 +19,7 @@ public class SQLFormattedRecords {
 	final private String[] INSERT_RECORD_STRINGS;
 	
 	/**
-	 * Populates the SQL_FORMATTED_DATA and INSERT_RECORD_STRINGS according to the correct database type.
+	 * Populate SQL_FORMATTED_DATA and INSERT_RECORD_STRINGS according to the correct database type.
 	 * The SQL_FORMATTED_DATA is the formatted data primed for insertion. For example, if a record's value
 	 * has the date 9999-12-31, it may be converted to TO_DATE('9999-12-31', 'YYYY-MM-DD') depending on the
 	 * database type. The INSERT_RECORD_STRINGS actually holds all of the Strings for inserting each record.
@@ -47,7 +47,7 @@ public class SQLFormattedRecords {
 	}
 	
 	/**
-	 * Creates the strings to be stored in INSERT_RECORD_STRINGS.
+	 * Create the strings to be stored in INSERT_RECORD_STRINGS.
 	 * For example, if a record is ["John", "Doe", "9999-12-31"], then the INSERT_RECORD_STRINGS stores
 	 * the following String: "INSERT INTO <table name> (FIRST_NAME, LAST_NAME, BIRTHDATE) VALUES ('John',
 	 * 'Doe', TO_DATE('9999-12-31', 'YYYY-MM-DD')".
@@ -65,7 +65,7 @@ public class SQLFormattedRecords {
 	}
 	
 	/**
-	 * Returns the SQL formatted data.
+	 * Return the SQL formatted data.
 	 * @return a String[][] array of the SQL formatted data
 	 */
 	public String[][] getSQLFormattedData() {
@@ -73,7 +73,7 @@ public class SQLFormattedRecords {
 	}
 	
 	/**
-	 * Returns the Strings for inserting a record primed for insertion.
+	 * Return the Strings for inserting a record primed for insertion.
 	 * @return a String[] array of the records primed for insertion
 	 */
 	public String[] getInsertRecordStrings() {

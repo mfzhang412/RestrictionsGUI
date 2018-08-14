@@ -14,13 +14,13 @@ import java.util.ArrayList;
  * 
  */
 public class CSVContents {
-	/* The location of the .csv file. */
+	/* The location of the .csv file */
 	final private String FILE_LOCATION;
-	/* Contains all the rows of the .csv file (rows are added in one by one until .csv file ends). */
+	/* Contains all the rows of the .csv file (rows are added in one by one until .csv file ends) */
 	private ArrayList<String[]> allRows;
 	
 	/**
-	 * Saves the location of the file as an instance variable and reads the contents of the file.
+	 * Save the location of the file as an instance variable and read the contents of the file.
 	 * @param loc	the location of the .txt or .csv file
 	 */
 	public CSVContents(String loc) {
@@ -30,7 +30,7 @@ public class CSVContents {
 	}
 	
 	/**
-	 * Reads all the contents of the .csv file and stores them as an instance variable.
+	 * Read all the contents of the .csv file and store them as an instance variable.
 	 * Returns true if successfully stored all contents, false otherwise.
 	 * @return	true if all records stored, false otherwise
 	 */
@@ -57,7 +57,7 @@ public class CSVContents {
 	}
 	
 	/**
-	 * Returns all the contents of the .csv file as an ArrayList<String[]>.
+	 * Return all the contents of the .csv file as an ArrayList<String[]>.
 	 * Note that this includes the first line, which may or may not be a record to be
 	 * entered or column headers to be removed later.
 	 * @return	the contents of the .csv file as an ArrayList<String[]>

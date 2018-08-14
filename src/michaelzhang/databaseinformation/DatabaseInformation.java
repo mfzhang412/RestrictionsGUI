@@ -9,15 +9,15 @@ package michaelzhang.databaseinformation;
  *
  */
 public class DatabaseInformation {
-	/* The database URL. */
+	/* The database URL */
 	private String databaseURL;
-	/* The JDBC driver name. */
+	/* The JDBC driver name */
 	private String jdbcDriver;
-	/* The database user name. */
+	/* The database user name */
 	private String username;
-	/* The database password. */
+	/* The database password */
 	private String password;
-	/* The database type in UPPERCASE(Oracle, PostgreSQL, MySQL, etc). */
+	/* The database type in UPPERCASE(Oracle, PostgreSQL, MySQL, etc) */
 	private String databaseType;
 	
 	/**
@@ -38,70 +38,80 @@ public class DatabaseInformation {
 	}
 	
 	/**
-	 * @return the databaseURL
+	 * Return the database URL.
+	 * @return the database URL
 	 */
 	public String getDatabaseURL() {
 		return databaseURL;
 	}
 	
 	/**
-	 * @param databaseURL the databaseURL to set
+	 * Set the database URL.
+	 * @param databaseURL the database URL
 	 */
 	public void setDatabaseURL(String databaseURL) {
 		this.databaseURL = databaseURL;
 	}
 	
 	/**
-	 * @return the jdbcDriver
+	 * Return the JDBC driver name.
+	 * @return the JDBC driver name
 	 */
 	public String getJDBCDriver() {
 		return jdbcDriver;
 	}
 	
 	/**
-	 * @param jdbcDriver the jdbcDriver to set
+	 * Set the JDBC driver name.
+	 * @param jdbcDriver the JDBC driver name
 	 */
 	public void setJDBCDriver(String jdbcDriver) {
 		this.jdbcDriver = jdbcDriver;
 	}
 	
 	/**
-	 * @return the username
+	 * Return the database user name.
+	 * @return the database user name
 	 */
 	public String getUsername() {
 		return username;
 	}
 	
 	/**
-	 * @param username the username to set
+	 * Set the database user name.
+	 * @param username the database user name
 	 */
 	public void setUsername(String username) {
 		this.username = username;
 	}
 	
 	/**
-	 * @return the password
+	 * Return the database password.
+	 * @return the database password
 	 */
 	public String getPassword() {
 		return password;
 	}
 	
 	/**
-	 * @param password the password to set
+	 * Set the database password.
+	 * @param password the database password
 	 */
 	public void setPassword(String password) {
 		this.password = password;
 	}
 	
 	/**
-	 * @return the databaseType
+	 * Return the database type (MySQL, PostgreSQL, Oracle, etc).
+	 * @return the database type (MySQL, PostgreSQL, Oracle, etc)
 	 */
 	public String getDatabaseType() {
 		return databaseType;
 	}
 	
 	/**
-	 * @param databaseType the databaseType to set
+	 * Set the database type (MySQL, PostgreSQL, Oracle, etc).
+	 * @param databaseType the database type (MySQL, PostgreSQL, Oracle, etc)
 	 */
 	public void setDatabaseType(String databaseType) {
 		this.databaseType = databaseType;

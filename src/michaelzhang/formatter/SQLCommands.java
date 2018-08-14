@@ -9,7 +9,7 @@ package michaelzhang.formatter;
 public class SQLCommands {
 
 	/**
-	 * Returns the string required to insert a single record into a table.
+	 * Return the string required to insert a single record into a table.
 	 * For example, if a record is ["John", "Doe", "9999-12-31"], then the method returns the
 	 * following String: "INSERT INTO <table name> (FIRST_NAME, LAST_NAME, BIRTHDATE) VALUES ('John',
 	 * 'Doe', TO_DATE('9999-12-31', 'YYYY-MM-DD')".

@@ -22,7 +22,7 @@ public class TableInformation {
 	private String identification;
 	
 	/**
-	 * Associates an id and name to a table as well as an ordered LinkedHashTable column names and column data types.
+	 * Associate an id and name to a table as well as an ordered LinkedHashTable column names and column data types.
 	 * The TableInformation identification instance variable is allowed to change via a setIdentification
 	 * method. The TABLE_NAME instance variable, however, is declared final and thus cannot change. The
 	 *  is in the order of the table's columns with the keys being the column names and the values
@@ -43,7 +43,7 @@ public class TableInformation {
 	}
 	
 	/**
-	 * Associates an id and name to a table as well as an ordered LinkedHashTable column names and column data types.
+	 * Associate an id and name to a table as well as an ordered LinkedHashTable column names and column data types.
 	 * This constructor defaults the TableInformation object's identification to the passed in table name.
 	 * The TableInformation identification instance variable is allowed to change via a setIdentification
 	 * method. The TABLE_NAME instance variable, however, is declared final and thus cannot change. The
@@ -64,15 +64,7 @@ public class TableInformation {
 	}
 	
 	/**
-	 * Sets the identification of the TableInformation object.
-	 * @param id	the new identification to be ascribed
-	 */
-	public void setIdentification(String id) {
-		this.identification = id;
-	}
-	
-	/**
-	 * Returns the TableInformation object's identification.
+	 * Return the TableInformation object's identification.
 	 * @return	the TableInformation's id
 	 */
 	public String getIdentification() {
@@ -80,7 +72,15 @@ public class TableInformation {
 	}
 	
 	/**
-	 * Returns the TableInformation object's table name.
+	 * Set the identification of the TableInformation object.
+	 * @param id	the new identification to be ascribed
+	 */
+	public void setIdentification(String id) {
+		this.identification = id;
+	}
+	
+	/**
+	 * Return the TableInformation object's table name.
 	 * @return	the TableInformation's table name
 	 */
 	public String getTableName() {
@@ -88,7 +88,7 @@ public class TableInformation {
 	}
 	
 	/**
-	 * Returns the LinkedHashTable of the table's column order.
+	 * Return the LinkedHashTable of the table's column order.
 	 * The LinkedHashTable has keys of the table's column names and values of the table's column data types.
 	 * Note, the LinkedHashTable is ordered in the order of the table's columns.
 	 * @return	the LinkedHashTable of the table's column names and data types
@@ -98,7 +98,7 @@ public class TableInformation {
 	}
 	
 	/**
-	 * Returns the associated table's column names in the order they appear in the database table.
+	 * Return the associated table's column names in the order they appear in the database table.
 	 * @return	the associated table's column names in order
 	 */
 	public String[] getColumnOrderedNames() {
@@ -106,7 +106,7 @@ public class TableInformation {
 	}
 	
 	/**
-	 * Returns the associated table's column data types in the order they appear in the database table.
+	 * Return the associated table's column data types in the order they appear in the database table.
 	 * @return	the associated table's column data types in order
 	 */
 	public String[] getColumnOrderedDataTypes() {
