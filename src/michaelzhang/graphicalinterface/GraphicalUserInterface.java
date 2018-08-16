@@ -33,6 +33,7 @@ public class GraphicalUserInterface {
 	 * @param args	arguments
 	 */
 	public static void main(String[] args) {
+		// preliminary set up (information is retrieved via user interaction with GUI)
 		UserPreferences prefs = new UserPreferences();
 		
 		DatabaseInformation dbInfo = new DatabaseInformation(databaseURL, jdbcDriver, username, password, databaseType);
@@ -40,13 +41,14 @@ public class GraphicalUserInterface {
 		
 		TableCollection tc = new TableCollection(conn, databaseName, prefs);
 		prefs.setTableCollection(tc);
-		prefs.setTableInformation(prefs.getTableCollection().getTable(tableName));
+		prefs.setTableInformation(prefs.getTableCollection().getTable(id)); // id is the same as table name by default, unless changed
 		
 		prefs.setFileLocation(loc);
-		prefs.setHeaderStatus(b);
+		prefs.setHeaderStatus(hasHeader);
 		prefs.setColumnOrdering(userOrder);
 		
 		
+		// process data and insert records
 		String fileLocation = prefs.getFileLocation();
 		CSVContents csvContents = new CSVContents(fileLocation);
 		ArrayList<String[]> allContents = csvContents.getAllRows();

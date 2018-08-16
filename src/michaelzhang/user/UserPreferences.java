@@ -47,8 +47,8 @@ public class UserPreferences {
 	 * True is that an extraneous header (first row) is present, false otherwise.
 	 * @param b	the boolean to be set
 	 */
-	public void setHeaderStatus(boolean b) {
-		this.headerStatus = b;
+	public void setHeaderStatus(boolean hasHeader) {
+		this.headerStatus = hasHeader;
 	}
 	
 	/**
