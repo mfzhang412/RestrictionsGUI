@@ -12,17 +12,9 @@ import michaelzhang.tablesinformation.TableCollection;
 import michaelzhang.tablesinformation.TableInformation;
 import michaelzhang.user.UserPreferences;
 
-/*
- * displays the interface that the user will be working with.
- * Will have a select document for the .csv location, a table selector
- * for the table to do things with the record,
- * a column selector that will tell which column in the .csv corresponds to what data,
- * a task number input dialogue, whether they want to delete, update, or insert records.
- */
-
 /**
  * Displays the interface that the user will be interacting with.
- * This class is also the entry point for the application.
+ * This class also serves as the entry point for the application.
  * @author michael.zhang
  *
  */
@@ -46,7 +38,6 @@ public class GraphicalUserInterface {
 		prefs.setFileLocation(loc);
 		prefs.setHeaderStatus(hasHeader);
 		prefs.setColumnOrdering(userOrder);
-		
 		
 		// process data and insert records
 		String fileLocation = prefs.getFileLocation();
