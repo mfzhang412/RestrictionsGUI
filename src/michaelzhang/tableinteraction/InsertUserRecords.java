@@ -1,10 +1,11 @@
 package michaelzhang.tableinteraction;
 
-import michaelzhang.user.UserPreferences;
 import java.sql.Connection;
-import java.sql.Statement;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.sql.Statement;
+
+import michaelzhang.user.UserPreferences;
 
 /**
  * Inserts records into a table given a String[] array of SQL queries.

@@ -1,7 +1,7 @@
 package michaelzhang.formatter;
 
-import java.util.Map;
 import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Logic to convert a record into a properly formatted String[].

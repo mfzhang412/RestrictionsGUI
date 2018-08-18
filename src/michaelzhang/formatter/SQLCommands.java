@@ -1,7 +1,7 @@
 package michaelzhang.formatter;
 
 /**
- * Formats strings for the basic SQL commands:create, select, modify/update, and delete for
+ * Formats strings for the basic SQL commands: create, select, modify/update, and delete for
  * record(s) in a table.
  * @author Michael Zhang
  *
@@ -24,23 +24,23 @@ public class SQLCommands {
 	}
 
 //	/**
-//	 * Returns the string required to get record(s) from a table.
+//	 * Return the string required to get record(s) from a table.
 //	 */
-//	public static String select() {
+//	public static String selectString() {
 //		return "";
 //	}
 //	
 //	/**
-//	 * Returns the string required to modify/update record(s) of a table.
+//	 * Return the string required to modify/update record(s) of a table.
 //	 */
-//	public static String modify() {
+//	public static String modifyString() {
 //		return "";
 //	}
 //	
 //	/**
-//	 * Returns the string required to delete record(s) from a table.
+//	 * Return the string required to delete record(s) from a table.
 //	 */
-//	public static String delete() {
+//	public static String deleteString() {
 //		return "";
 //	}
 }

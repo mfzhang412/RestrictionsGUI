@@ -1,8 +1,8 @@
 package michaelzhang.tableinteraction;
 
-import michaelzhang.tablesinformation.TableInformation;
 import michaelzhang.formatter.DataTypeFormatter;
 import michaelzhang.formatter.SQLCommands;
+import michaelzhang.tablesinformation.TableInformation;
 
 /**
  * Takes the entire content of a String[][] and stores it according to an appropriate SQL format.

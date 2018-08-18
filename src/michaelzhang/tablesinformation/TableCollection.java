@@ -25,7 +25,9 @@ public class TableCollection {
 	 * Gathers information about each table in a database, creates a new TableInformation object and
 	 * adds that to a list. Once all of the tables in the database have been represented as a TableInformation
 	 * object, save them in an ArrayList.
-	 * @param prefs	object that contains database access information
+	 * @param conn			Connection object to the database
+	 * @param databaseName	the database name
+	 * @param prefs	object 	that contains database access information
 	 */
 	public TableCollection(Connection conn, String databaseName, UserPreferences prefs) {
 		ResultSet rs = null;

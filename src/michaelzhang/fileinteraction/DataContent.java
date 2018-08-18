@@ -1,8 +1,9 @@
 package michaelzhang.fileinteraction;
 
-import michaelzhang.formatter.UserDataFormatter;
 import java.util.ArrayList;
 import java.util.HashMap;
+
+import michaelzhang.formatter.UserDataFormatter;
 
 /**
  * Takes the entire content of an ArrayList<String[]> and stores it according to an appropriate format.

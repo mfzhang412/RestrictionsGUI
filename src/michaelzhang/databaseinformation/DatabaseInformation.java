@@ -38,6 +38,13 @@ public class DatabaseInformation {
 	}
 	
 	/**
+	 * Create a DatabaseInformation object.
+	 */
+	public DatabaseInformation() {
+		// do nothing
+	}
+	
+	/**
 	 * Return the database URL.
 	 * @return the database URL
 	 */

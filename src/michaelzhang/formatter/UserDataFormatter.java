@@ -2,8 +2,8 @@ package michaelzhang.formatter;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Iterator;
 import java.util.HashMap;
+import java.util.Iterator;
 
 /**
  * This class acts as a logic container for formatting incoming user data to fit a table in a database.
@@ -87,12 +87,12 @@ public class UserDataFormatter {
 		
 		String[][] matrix = UserDataFormatter.twoDimArray(rows); // converts rows to String[][]
 		String[][] transposedRows = UserDataFormatter.transpose(matrix); // transposes String[][]
-		
+
 		Iterator<String> iter = tableColumnOrder.keySet().iterator(); // creates iterator to go through the mapping
 		
-		ArrayList<String[]> transModRows = new ArrayList<String[]>(); // the ArrayList to be returned modified
+		ArrayList<String[]> transModRows = new ArrayList<String[]>(); // the modified ArrayList to be returned
 		
-		int numRecords = transposedRows.length; // the number of records entered in
+		int numRecords = matrix.length; // the number of records entered in
 		
 		while(iter.hasNext()) { // checks to see if the map has a next value to iterate to
 			int index = UserDataFormatter.indexOf(userColumnOrdering, iter.next());
